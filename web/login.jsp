@@ -11,11 +11,11 @@
     <title>Title</title>
 </head>
 <body>
-<==========用户==========>
+<==========用户登录==========>
 <form action="In_user" method="post">
     用户名:<input type="text" name="username"><br>
     密码：<input type="password" name="pwd"><br>
-    <input type="submit" value="注册">
+    <input type="submit" value="登录"><a href="in_user.jsp">注册</a>
 </form>
 </body>
 </html>
