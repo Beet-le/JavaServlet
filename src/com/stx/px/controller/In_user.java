@@ -19,6 +19,7 @@ public class In_user extends HttpServlet {
         String name = request.getParameter("username");
         String pwd = request.getParameter("pwd");
         UserDao user = new UserDao();
+
         int i = user.inu(name, pwd);
         if (i > 0) {
             response.sendRedirect("success.jsp");
