@@ -14,7 +14,6 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("username");
@@ -22,5 +21,14 @@ public class LoginServlet extends HttpServlet {
 
         UserDao user = new UserDao();
         UserModle modle = user.login(name, pwd);
+        if (modle.getUsername()==""||modle.getUsername()==null){
+            //转发
+           request.getRequestDispatcher("fail.jsp").forward(request,response);
+        }else {
+            //会话
+            HttpSession session=request.getSession();
+            session.setAttribute("loginSession",modle);
+            request.getRequestDispatcher("success.jsp").forward(request,response);
+        }
     }
 }

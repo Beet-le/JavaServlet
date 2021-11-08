@@ -1,6 +1,7 @@
 package com.stx.px.controller;
 
 import com.stx.px.dao.UserDao;
+import com.stx.px.modle.UserModle;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -21,8 +22,12 @@ public class In_user extends HttpServlet {
         UserDao user = new UserDao();
 
         int i = user.inu(name, pwd);
+        UserModle modle = user.login(name, pwd);
         if (i > 0) {
-            response.sendRedirect("success.jsp");
+           /* HttpSession session=request.getSession();
+            session.setAttribute("loginSession",modle);
+            request.getRequestDispatcher("success.jsp").forward(request,response);*/
+            response.sendRedirect("login.jsp");
         } else {
             response.sendRedirect("fail.jsp");
         }

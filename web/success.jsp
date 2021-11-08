@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.stx.px.modle.UserModle" %><%--
   Created by IntelliJ IDEA.
   User: Beetle
   Date: 2021/11/4
@@ -11,6 +11,9 @@
     <title>Title</title>
 </head>
 <body>
-注册成功
+<%
+    UserModle modle = (UserModle) request.getSession().getAttribute("loginSession");
+%>
+注册成功,welcom<%=modle.getUsername()%>
 </body>
 </html>

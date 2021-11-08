@@ -3,6 +3,7 @@ package com.stx.px.dao;
 import com.stx.px.modle.UserModle;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class UserDao {
     public int inu(String name, String pwd) {
@@ -27,7 +28,6 @@ public class UserDao {
             Statement st = con.createStatement();
             String sql = "select *from  px_stuinfo1 where username='" + name + "'and password='" + pwd + "' ";
             ResultSet rs = st.executeQuery(sql);
-
             while (rs.next()) {
                 modle.setStuid(rs.getInt("stuid"));
                 modle.setUsername(rs.getString("username"));
@@ -35,6 +35,23 @@ public class UserDao {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-        return  modle;
+        return modle;
+    }
+
+
+    public ArrayList selecttall() {
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:BEETLE", "system", "Xxq123456");
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select *from px_stuinfo1");
+            while (rs.next()) {
+                UserModle modle = new UserModle();
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
