@@ -37,11 +37,12 @@ public class UserDao {
         }
         return modle;
     }
-    ArrayList list=new ArrayList();
 
+    ArrayList list = new ArrayList();
+
+    //遍历输出
     public ArrayList selecttall() {
         try {
-
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:BEETLE", "system", "Xxq123456");
             Statement st = con.createStatement();
@@ -57,5 +58,19 @@ public class UserDao {
             e.printStackTrace();
         }
         return list;
+    }
+
+    //s删除用户
+    public int del_user(int newid) {
+        int i = 0;
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:BEETLE", "system", "Xxq123456");
+            Statement st = con.createStatement();
+            i = st.executeUpdate("delete from  px_stuinfo1 where stuid=" + newid + "");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return i;
     }
 }
