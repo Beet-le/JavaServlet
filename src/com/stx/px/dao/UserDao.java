@@ -37,21 +37,25 @@ public class UserDao {
         }
         return modle;
     }
-
+    ArrayList list=new ArrayList();
 
     public ArrayList selecttall() {
         try {
+
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:BEETLE", "system", "Xxq123456");
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("select *from px_stuinfo1");
             while (rs.next()) {
                 UserModle modle = new UserModle();
-
+                modle.setStuid(rs.getInt("stuid"));
+                modle.setUsername(rs.getString("username"));
+                modle.setPassword(rs.getString("password"));
+                list.add(modle);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return list;
     }
 }

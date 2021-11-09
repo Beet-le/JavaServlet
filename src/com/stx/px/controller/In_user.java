@@ -17,6 +17,8 @@ public class In_user extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        response.setContentType("text");
+        request.setCharacterEncoding("UTF-8");
         String name = request.getParameter("username");
         String pwd = request.getParameter("pwd");
         UserDao user = new UserDao();
