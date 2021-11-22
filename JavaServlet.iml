@@ -36,5 +36,7 @@
     </orderEntry>
     <orderEntry type="library" name="ojdbc14" level="project" />
     <orderEntry type="library" name="ojdbc7" level="project" />
+    <orderEntry type="library" name="standard" level="project" />
+    <orderEntry type="library" name="jstl" level="project" />
   </component>
 </module>
