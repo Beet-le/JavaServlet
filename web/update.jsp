@@ -12,8 +12,9 @@
 </head>
 <body>
 <form>
-    id:<input type="text" readonly="readonly" value="<%=request.getParameter("id")%>"/>
-
+    id:<input type="text" readonly="readonly" value="<%=request.getParameter("id")%>"/><br>
+    username:<input type="text" name="username" value="<%=request.getParameter("name")%>"/>
+    password:<input type="text" name="pwd" value="<%=request.getParameter("pwd")%>"/>
 </form>
 </body>
 </html>
