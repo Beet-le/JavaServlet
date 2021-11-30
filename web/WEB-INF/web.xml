@@ -3,4 +3,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <filter>
+        <filter-name>Login_Filter</filter-name>
+        <filter-class>com.stx.px.filter.Login_Filter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Login_Filter</filter-name>
+        <url-pattern>/success.jsp</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>Chinese_Filter</filter-name>
+        <filter-class>com.stx.px.filter.Chinese_Filter</filter-class>
+        <init-param>
+            <param-name>encond</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>Chinese_Filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

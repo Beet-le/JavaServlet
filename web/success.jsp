@@ -38,6 +38,7 @@
         <a href="in_user.jsp"> 添加</a>
         <a href="update.jsp?id=<%= modle2.getStuid()%>&name<%=modle2.getUsername()%>&pwd<%=modle2.getPassword()%>">修改</a>
         <a href="DelServlet?id=<%= modle2.getStuid()%>" > 删除</a>
+
     </td>
 </tr>
     <%}%>

@@ -13,8 +13,9 @@
 <body>
 <form action="" method="post">
     id:<input type="text" name="stuid" readonly="readonly" value="<%=request.getParameter("id")%>"/><br>
-    username:<input type="text" name="username" value="<%=request.getParameter("name")%>"/>
+    username:<input type="text" name="username" value="<%=request.getParameter("name")%>"/><br>
     password:<input type="text" name="pwd" value="<%=request.getParameter("pwd")%>"/>
+    <input type="submit" value="提交">
 </form>
 </body>
 </html>
